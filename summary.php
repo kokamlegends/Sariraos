@@ -1,0 +1,122 @@
+<?php 
+	
+	session_start();
+	error_reporting(0);
+	
+	$order_id = $_SESSION['order_id'];
+	$name = $_SESSION['name'];
+	
+	unset($_SESSION['order_id']);
+	
+	unset($_SESSION['name']);
+	
+	unset($_SESSION['cart_array']);
+	
+?>
+
+<!Doctype html>
+
+<html lang="en">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<head>
+	
+<title>SARI RAOS</title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+<script src="js/jquery.min.js" ></script>
+
+<script src="js/myscript.js"></script>
+	
+</head>
+
+<body>
+	
+<?php require "includes/header.php"; ?>
+
+<div class="parallax_basket" onclick="remove_class()">
+	
+	<div class="parallax_head_basket">
+		
+		<h2>Order</h2>
+		<h3>Makanan & Minuman</h3>
+		
+	</div>
+	
+</div>
+
+<div class="content remove_pad" onclick="remove_class()">
+	
+	<div class="inner_content on_parallax">
+		
+		<h2><span class=>Order Success</span></h2>
+		
+		<div class="order_holder">
+			
+			<p class="summary_p">Terima kasih atas dukungan Anda <?php echo $name; ?>. <span>Order number</span> anda: <?php echo $order_id; ?>. Harap dicatat bahwa nomor pesanan Anda harus tetap aman.</p>
+			
+		</div>
+		
+		<?php print_r($_SESSION);?>
+		
+	</div>
+	
+</div>
+
+<div class="content" onclick="remove_class()">
+	
+	<div class="inner_content">
+		
+		<div class="contact">
+			
+			<div class="left">
+				
+				<h3>LOCATION</h3>
+				<p>Jl. R.A Kartini Unit 2, Rimbo Bujang, Tebo</p>
+				<p>JAMBI</p>
+				
+			</div>
+			
+			<div class="left">
+				
+				<h3>CONTACT</h3>
+				<p>08054645432, 07086898709</p>
+				<p>Website@gmail.com</p>
+				
+			</div>
+			
+			<p class="left"></p>
+			
+			<div class="icon_holder">
+				
+				<a href="#"><img src="image/icons/Facebook.png" alt="image/icons/Facebook.png" /></a>
+				<a href="#"><img src="image/icons/Google+.png" alt="image/icons/Google+.png"  /></a>
+				<a href="#"><img src="image/icons/Twitter.png" alt="image/icons/Twitter.png"  /></a>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<div class="footer_parallax" onclick="remove_class()">
+	
+	<div class="on_footer_parallax">
+		
+		<p>&copy; <?php echo strftime("%Y", time()); ?> <span>SARI RAOS</span>. All Rights Reserved</p>
+		
+	</div>
+	
+</div>
+
+</body>
+
+</html>
