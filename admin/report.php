@@ -159,6 +159,8 @@
                         <th>Detail Order</th>
                     </thead>
                     <tbody>";
+
+                    $x=1;
     
                     while ($row = $query->fetch_assoc()) {
                         $order_id = $row['id'];

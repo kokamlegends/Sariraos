@@ -27,7 +27,7 @@
 						
 		$start = ($page - 1) * $per_page;
 		
-		$reserve = $db->query("SELECT * FROM reservation LIMIT $start, $per_page");
+		$reserve = $db->query("SELECT * FROM reservation ");
 		
 		if($reserve->num_rows) {
 			
@@ -42,6 +42,7 @@
 							<th>Date</th>
 							<th>Time</th>
 							<th>Suggestions</th>
+							<th>Detail</th>
 							<th>Action</th>
 						</thead>
 						<tbody>";
@@ -58,6 +59,14 @@
 				$date_res = $row['date_res'];
 				$time = $row['time'];
 				$suggestions = $row['suggestions'];
+				$detail = "";
+				$query = "SELECT * FROM basket,items WHERE basket.id=items.order_id AND basket.reserve_id ='$reserve_id'";
+				$qdetail = $db->query($query);
+				if ($qdetail->num_rows) {
+					while ($roww = $qdetail->fetch_assoc()) {
+						$detail .= $roww['food']."<br>";
+					}
+				}else echo "error";
 				
 				
 				$result .=  "<tr>
@@ -70,6 +79,7 @@
 								<td>$date_res</td>
 								<td>$time</td>
 								<td>$suggestions</td>
+								<td>$detail</td>
 								<td><a href='reservations.php?delete=".$reserve_id."' onclick='return check();'><i class='pe-7s-close-circle'></i></a></td>
 							</tr>";
 																
