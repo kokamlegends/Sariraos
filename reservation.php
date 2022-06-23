@@ -199,8 +199,6 @@
 	
 </div>
 
-<?php print_r($_SESSION);?>
-
 <div class="content" onclick="remove_class()">
 	
 	<div class="inner_content">

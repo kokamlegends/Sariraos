@@ -63,8 +63,6 @@
 			
 		</div>
 		
-		<?php print_r($_SESSION);?>
-		
 	</div>
 	
 </div>

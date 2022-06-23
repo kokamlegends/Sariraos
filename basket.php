@@ -341,7 +341,6 @@
 					<?php echo $chkfood; ?>
 					
 					<input type="hidden" id="chkprice" name="chkprice" value="<?= $totalPrice ?>" />
-					<?php print_r($_SESSION);?>
 					
 				</div>
 				
